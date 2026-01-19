@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruman Najam | Portfolio</title>
+
+
+    <meta name="description"
+        content="Portfolio of Ruman Najam - Graphic Designer, Web Developer & DevOps Engineer based in Pakistan.">
+    <meta property="og:title" content="Ruman Najam | Professional Portfolio">
+    <meta property="og:description" content="Check out my Web Development, Graphic Design, and DevOps projects.">
+    <meta property="og:image" content="My-Pic.png">
+    <meta property="og:url" content="https://rumanch.github.io/portfolio">
+    <meta name="theme-color" content="#0f172a">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ================= GLOBAL ================= */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0f172a;
+            text-align: center;
+            overflow-x: hidden;
+            /* Padding top accounts for fixed navbar (60px) */
+            padding-top: 60px;
+            position: relative;
+
+            /* --- TECH GRID BACKGROUND --- */
+            background-color: #ffffff;
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px),
+                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center top;
+        }
+
+        /* --- FADE OVERLAY --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle, transparent 40%, #ffffff 95%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* ================= TOP MARQUEE ================= */
+        .marquee-container {
+            background: #0f172a;
+            color: white;
+            padding: 12px 0;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            border-bottom: 2px solid #0ea5e9;
+            z-index: 5;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scrollText 50s linear infinite;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            padding: 60px 20px 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: visible;
+        }
+
+        .hero-intro {
+            font-size: 16px;
+            font-weight: 500;
+            color: #64748b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 9vw, 110px);
+            font-weight: 900;
+            line-height: 0.90;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 0px;
+            position: relative;
+            color: #0f172a;
+            z-index: 1;
+        }
+
+        .outline-text {
+            color: white;
+            -webkit-text-stroke: 2px #0f172a;
+            text-stroke: 2px #0f172a;
+        }
+
+        .hero-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-pic {
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            height: 380px;
+            width: auto;
+            object-fit: contain;
+            margin-top: -130px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-subline {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* Button & Arrow */
+        .resume-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .resume-btn {
+            padding: 16px 42px;
+            border: none;
+            border-radius: 999px;
+            background: #0ea5e9;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.2);
+        }
+
+        .resume-btn:hover {
+            background: #0284c7;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
+        }
+
+        .decorative-arrow {
+            font-size: 32px;
+            color: #0f172a;
+            opacity: 0.8;
+            transform: rotate(90deg);
+            animation: bounceArrow 1.5s infinite alternate;
+        }
+
+        @keyframes bounceArrow {
+            from {
+                transform: translateX(0) rotate(90deg);
+            }
+
+            to {
+                transform: translateX(5px) rotate(90deg);
+            }
+        }
+
+        .hero-tech-stack {
+            margin-top: 60px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .hero-tech-stack img {
+            width: 32px;
+            height: 32px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .hero-tech-stack i {
+            font-size: 32px;
+            color: #334155;
+            transition: all 0.3s ease;
+        }
+
+        .hero-tech-stack:hover {
+            opacity: 1;
+        }
+
+        .hero-tech-stack img:hover,
+        .hero-tech-stack i:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+            color: #0f172a;
+        }
+
+        /* ================= SKILLS SECTION ================= */
+        .skills-section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .skills-header-group {
+            margin-bottom: 50px;
+        }
+
+        .skills-heading {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .skills-heading::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: #0ea5e9;
+            margin-top: 8px;
+        }
+
+        .skills-quote {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px 60px;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #1e293b;
+            text-transform: uppercase;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #0ea5e9;
+            border-radius: 99px;
+            transition: width 1s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* ================= PORTFOLIO SECTION ================= */
+        .portfolio {
+            padding: 80px 20px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: #0f172a;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '.';
+            color: #0ea5e9;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .icons img {
+            width: 28px;
+            height: 28px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .icons i {
+            font-size: 28px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            color: #334155;
+        }
+
+        .card:hover .icons img,
+        .card:hover .icons i {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            padding: 80px 20px 40px;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .socials {
+            margin-bottom: 30px;
+        }
+
+        .socials i {
+            font-size: 32px;
+            margin: 0 20px;
+            cursor: pointer;
+            color: #0f172a;
+            transition: all 0.3s ease;
+        }
+
+        .socials i:hover {
+            color: #0ea5e9;
+            transform: scale(1.2);
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* ================= FLOATING WHATSAPP BUTTON ================= */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            /* WhatsApp Green */
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 10000;
+            /* Stays on top of everything */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            /* Darker green on hover */
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Socials</a></li>
+        </ul>
+    </nav>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>WEB DEV • GRAPHIC DESIGN • VIDEO EDITING • AI AUTOMATIONS • DEVOPS • ADS CREATIVE • WEB DEV • GRAPHIC
+                DESIGN • VIDEO EDITING • AI AUTOMATIONS • DEVOPS • ADS CREATIVE • </span>
+            <span>WEB DEV • GRAPHIC DESIGN • VIDEO EDITING • AI AUTOMATIONS • DEVOPS • ADS CREATIVE • WEB DEV • GRAPHIC
+                DESIGN • VIDEO EDITING • AI AUTOMATIONS • DEVOPS • ADS CREATIVE • </span>
+        </div>
+    </div>
+
+    <section class="hero" id="home">
+        <div class="hero-intro">
+            <span>👋</span>
+            <span>My name is <strong>Ruman Najam</strong> and I am a </span>
+        </div>
+
+        <div class="hero-title">
+            <div>GRAPHIC</div>
+            <div class="outline-text">DESIGNER</div>
+            <div class="outline-text">& WEB</div>
+            <div class="outline-text">DEVELOPER</div>
+        </div>
+
+        <div class="hero-content-wrapper">
+            <img src="My-Pic.png" class="profile-pic" alt="Profile">
+            <p class="hero-subline">based in Pakistan 🇵🇰</p>
+
+            <div class="resume-container">
+                <button class="resume-btn" onclick="window.open('Cv-Ruman-Najam.pdf','_blank')">
+                    Download Resume
+                </button>
+                <i class="fa-solid fa-arrow-turn-down decorative-arrow"></i>
+            </div>
+        </div>
+
+        <div class="hero-tech-stack">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/64px-Adobe_Photoshop_CC_icon.svg.png"
+                alt="Ps">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/64px-Adobe_Illustrator_CC_icon.svg.png"
+                alt="Ai">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/64px-Adobe_Premiere_Pro_CC_icon.svg.png"
+                alt="Pr">
+            <i class="fa-brands fa-html5"></i>
+            <i class="fa-brands fa-css3-alt"></i>
+            <i class="fa-brands fa-js"></i>
+            <i class="fa-brands fa-docker"></i>
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <div class="skills-header-group">
+            <h2 class="skills-heading">Skills</h2>
+            <p class="skills-quote">"Powered by Passion, Backed by Skills"</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skills-col">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Web Dev (HTML, CSS, Javascript)</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Graphic Design (Ai, Ps, Id, Canva)</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Video Editing (CapCut, Pr, Ae)</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-col">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>DevOps (AWS, Docker, Git, K8s)</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 60%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>AI Automations (n8n, Docker)</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Ads Creative (Meta / TikTok)</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">My Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="card"
+                onclick="window.open('https://drive.google.com/drive/folders/1eLiBsbK7nwfYHYDJtOwSLGunZdAijK-s?usp=sharing','_blank')">
+                <h2>Web Development</h2>
+                <div class="icons">
+                    <i class="fa-brands fa-html5" style="color:#E34F26"></i>
+                    <i class="fa-brands fa-css3-alt" style="color:#1572B6"></i>
+                    <i class="fa-brands fa-js" style="color:#F7DF1E"></i>
+                    <i class="fa-brands fa-wordpress" style="color:#21759B"></i>
+                </div>
+            </div>
+
+            <div class="card"
+                onclick="window.open('https://drive.google.com/drive/folders/1Dihm23x_N0dFcI_bKc-EW7uYr2Iwf8Q1?usp=sharing','_blank')">
+                <h2>Graphic Design</h2>
+                <div class="icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/64px-Adobe_Illustrator_CC_icon.svg.png"
+                        alt="Ai">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/64px-Adobe_Photoshop_CC_icon.svg.png"
+                        alt="Ps">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Adobe_InDesign_CC_icon.svg/64px-Adobe_InDesign_CC_icon.svg.png"
+                        alt="Id">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/64px-Figma-logo.svg.png"
+                        alt="Figma">
+                </div>
+            </div>
+
+            <div class="card"
+                onclick="window.open('https://drive.google.com/drive/folders/1Q26XyqzXvvpAIowDW5CXOgknoPIKZvO-?usp=sharing','_blank')">
+                <h2>DevOps</h2>
+                <div class="icons">
+                    <i class="fa-brands fa-docker" style="color:#2496ED"></i>
+                    <i class="fa-brands fa-github" style="color:#181717"></i>
+                    <i class="fa-brands fa-aws" style="color:#FF9900"></i>
+                </div>
+            </div>
+
+            <div class="card"
+                onclick="window.open('https://drive.google.com/drive/folders/12VqbrB9tXqPmEr57GHys6KDlBv3DyEok?usp=sharing','_blank')">
+                <h2>AI Agents</h2>
+                <div class="icons">
+                    <img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n">
+                    <i class="fa-brands fa-docker" style="color:#2496ED"></i>
+                    <i class="fa-brands fa-html5" style="color:#E34F26"></i>
+                </div>
+            </div>
+
+            <div class="card"
+                onclick="window.open('https://drive.google.com/drive/folders/1Y8SK317jhR1ZMLyUy_bpbxEftBcw3ZdQ?usp=sharing','_blank')">
+                <h2>Video Editing</h2>
+                <div class="icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/64px-Adobe_Premiere_Pro_CC_icon.svg.png"
+                        alt="Pr">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Adobe_After_Effects_CC_icon.svg/64px-Adobe_After_Effects_CC_icon.svg.png"
+                        alt="Ae">
+                </div>
+            </div>
+
+            <div class="card"
+                onclick="window.open('https://drive.google.com/drive/folders/1GQLjrBL8aDAHOPi2zCJh4Gv_waSkOQMd?usp=sharing','_blank')">
+                <h2>Ads Creative</h2>
+                <div class="icons">
+                    <i class="fa-brands fa-facebook" style="color:#1877F2"></i>
+                    <i class="fa-brands fa-instagram" style="color:#E4405F"></i>
+                    <i class="fa-brands fa-tiktok" style="color:#000000"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 class="section-title">Connect with Me</h2>
+        <div class="socials">
+            <a href="https://www.linkedin.com/in/ruman-chdry-522b942a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Rumanch" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/rum1x20?igsh=d20xOWViZjh1d2Z1&utm_source=qr" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chaudharyruman01@gmail.com" target="_blank">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>© 2026 Ruman Najam. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/923350055593" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+
+</html>
